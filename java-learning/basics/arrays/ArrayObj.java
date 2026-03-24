@@ -1,3 +1,5 @@
+// Practice: Array of Objects, NullPointerException behavior, reference sharing
+
 class Dogs {
      
       int age;
