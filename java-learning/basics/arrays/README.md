@@ -1,9 +1,11 @@
-Beginner Java array practice.
+# Beginner Java Array Practice
 
-Includes: 
+This folder contains my beginner-level Java programs focused on understanding array fundamentals.
 
-* Iterating arrays
-* Arrays of objects
-* Null safety
-* Conditional logic inside loops
+Concepts practiced:
+- Iterating through arrays using loops
+- Arrays of objects
+- Handling null values safely
+- Using conditional logic inside loops
 
+These exercises are part of building a strong core foundation in Java programming.
