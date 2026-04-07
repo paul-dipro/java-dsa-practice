@@ -4,12 +4,6 @@ This repository contains my ongoing practice and learning in Java programming.
 
 ---
 
-
----
-
-
----
-
 ## 📈 Progress
 
 Regular updates with small programs and practice problems.
