@@ -1,9 +1,10 @@
 import java.util.Scanner;
 
  class Book {
+
     String title;
     int pageCount;
-
+    static final int MIN_PAGE = 5;
 
  Book(String title, int pageCount) {
     this.title = title;
@@ -21,7 +22,7 @@ private void setTitle(String title) {
 
     if(pageCount < 0) {
 
-     this.pageCount = 1;
+     this.pageCount = MIN_PAGE;
 
     } else {
      
