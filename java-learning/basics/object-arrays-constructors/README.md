@@ -5,19 +5,7 @@ This module demonstrates a deep dive into Java's memory model and object initial
 
 ---
 
-## 🛠 Key Technical Competencies
 
-### 1. Advanced Initialization (Constructors)
-* **State Encapsulation:** Utilizing parameterized constructors to ensure objects are always instantiated in a valid state.
-* **The `this` Reference:** Implementing explicit variable shadowing resolution to maintain clean, readable codebases.
-* **Overloading:** Providing multiple entry points for object creation to increase API flexibility.
-
-### 2. Memory Management (Object Arrays)
-* **Reference Handling:** Understanding that an array of objects stores *references*, not the objects themselves, optimizing heap usage.
-* **Null Safety:** Developing defensive programming habits to prevent `NullPointerExceptions` during array iteration.
-* **Scalability:** Moving from isolated variables to indexed data structures for bulk data processing.
-
----
 
 ## 💻 Logic Demonstration
 
