@@ -9,7 +9,7 @@ A terminal-based logic game based on the "Battleship" concept.
 *   **Core Concepts:** Array manipulation, random coordinate generation, and game loop management.
 *   **Goal:** Sink all hidden targets in the fewest possible moves.
 
-## 2. Student Grade Tracker
+## 2. src.main.java.Student Grade Tracker
 A management tool for academic data entry and analysis.
 *   **Core Concepts:** ArrayLists, input validation, HashMap, Polymorphism and statistical calculations (average, highest/lowest scores) Exception Handling.
 *   **Goal:** Provide a persistent-style interface for educators to track student performance.

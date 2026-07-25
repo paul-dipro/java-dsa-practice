@@ -4,9 +4,9 @@ This folder shows how arrays work when they store objects instead of simple valu
 
 ## What I learned
 
-* Creating an array like `new Student[5]` does NOT create objects
+* Creating an array like `new src.main.java.Student[5]` does NOT create objects
 * All indexes are `null` initially
-* I must create each object using `new Student()`
+* I must create each object using `new src.main.java.Student()`
 * If I use an index without creating an object → NullPointerException
 * Arrays store references, not actual objects
 

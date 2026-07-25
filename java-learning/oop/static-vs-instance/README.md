@@ -10,7 +10,7 @@
 ## 🔹 Example
 
 ```java
-class Student {
+class src.main.java.Student {
     String name;          // instance
     static String school; // static
 }

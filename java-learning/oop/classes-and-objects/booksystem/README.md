@@ -7,7 +7,7 @@ A simple book management example demonstrating core class and object concepts in
 | File | Role |
 |------|------|
 | `Book.java` | Blueprint — fields, constructor, instance method, static method |
-| `Main.java` | Entry point — creates objects, calls methods, prints output |
+| `src.main.java.Main.java` | Entry point — creates objects, calls methods, prints output |
 
 ## What it demonstrates
 
