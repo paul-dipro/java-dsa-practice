@@ -2,14 +2,6 @@ package leetcode.arrays.two_sum;
 
 import java.util.HashMap;
 
-/**
- * LeetCode 1: Two Sum
- *
- * Time Complexity: O(N) - Single pass through the array.
- * Space Complexity: O(N) - To store up to N elements in the HashMap.
- */
-
-
 public class Solution {
     public int[] twoSum(int[] nums, int target) {
         if (nums == null || nums.length < 2) {

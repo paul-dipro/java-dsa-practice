@@ -1,13 +1,5 @@
 package leetcode.strings.valid_palindrome;
 
-/**
- * LeetCode 125: Valid Palindrome
- *
- * Time Complexity: O(n) - Single pass where n is the length of the string.
- * Space Complexity: O(1) - Constant space used by two pointers; no extra strings created.
- */
-
-
 public class Solution {
     public boolean isPalindrome(String s) {
         if (s == null || s.isEmpty()) {
