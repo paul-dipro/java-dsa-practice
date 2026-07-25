@@ -67,7 +67,7 @@ public class Main {
                 case 5 -> manager.updateStudentDataBase();
                 case 6 -> manager.deleteStudentDataBase();
                 case 7 -> {
-                    System.out.println("Returning to Main Portal...");
+                    System.out.println("Returning to src.main.java.Main Portal...");
                     return;
                 }
                 default -> System.out.println("Invalid choice");
@@ -88,7 +88,7 @@ public class Main {
                   3. Display All
                   4. Update Data
                   5. Delete Data
-                  6. Return to Main Portal
+                  6. Return to Portal
                 """);
 
             System.out.print("Choose an option: ");

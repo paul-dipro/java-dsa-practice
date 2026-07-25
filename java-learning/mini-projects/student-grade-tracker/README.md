@@ -1,4 +1,4 @@
-# Student Grade Tracker
+# src.main.java.Student Grade Tracker
 
 A Java CLI application for managing student records using **Object-Oriented Programming**, **HashMap**, and **PostgreSQL (JDBC)**. The project demonstrates CRUD operations, input validation, and academic performance analysis through a clean layered architecture.
 
@@ -30,15 +30,15 @@ A Java CLI application for managing student records using **Object-Oriented Prog
 ## Project Structure
 
 ```text
-Main.java
-StudentManager.java
-TeacherManager.java
-DBUtil.java
-GradeSystem.java
-Student.java
-Teacher.java
-User.java
-Authenticatable.java
+src.main.java.Main.java
+src.main.java.StudentManager.java
+src.main.java.TeacherManager.java
+src.main.java.DBUtil.java
+src.main.java.GradeSystem.java
+src.main.java.Student.java
+src.main.java.Teacher.java
+src.main.java.User.java
+src.main.java.Authenticatable.java
 ```
 
 ---
@@ -46,19 +46,19 @@ Authenticatable.java
 ## Architecture
 
 ```text
-Authenticatable
+src.main.java.Authenticatable
         │
         ▼
-   User (Abstract)
+   src.main.java.User (Abstract)
      /        \
-Student       Teacher
+src.main.java.Student       src.main.java.Teacher
       │          |
-StudentManager  TeacherManager
+src.main.java.StudentManager  src.main.java.TeacherManager
       │               |
       \               /
        \             /
         \           /
-            DBUtil
+            src.main.java.DBUtil
            /     \
  PostgreSQL       PostgreSQL
 ```

@@ -1,9 +1,10 @@
+
+
 import java.util.Scanner;
 import java.util.InputMismatchException;
 import java.util.HashMap;
 //FILE HANDLING USING PostgreSQL IMPORTS
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
@@ -119,7 +120,7 @@ public class StudentManager {
                 if (count > 0) {
                     return count;
                 }
-                System.out.println("Invalid! Student count must be greater than 0.");
+                System.out.println("Invalid! src.main.java.Student count must be greater than 0.");
             } catch (InputMismatchException e) {
                 System.out.println("Numbers only.");
                 sc.nextLine();

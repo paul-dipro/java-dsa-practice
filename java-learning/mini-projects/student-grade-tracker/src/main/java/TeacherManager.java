@@ -1,3 +1,5 @@
+
+
 import java.util.Scanner;
 import java.util.InputMismatchException;
 import java.util.HashMap;
@@ -22,17 +24,22 @@ public class TeacherManager {
         int totalTeachers = getValidTeacherCount();
 
         for (int i = 0; i < totalTeachers; i++) {
-            System.out.println("\n========== Teacher " + (i + 1) + " ==========");
-            int userId = getValidUserId();
+            System.out.println("\n========== src.main.java.Teacher " + (i + 1) + " ==========");
             String name = getValidName();
             String email = getValidEmail();
             String schoolName = getValidSchoolName();
             double salary = getValidSalary();
             String status = getValidStatus();
 
-            Teacher newTeacher = new Teacher(userId, name, email, schoolName, salary, status);
-            usersMap.put(userId, newTeacher);
-            saveTeacherToDatabase(userId, name, email, schoolName, salary, status);
+            int generatedUserId = saveTeacherToDatabase(name, email, schoolName, salary, status);
+
+            if (generatedUserId != -1) {
+                Teacher newTeacher = new Teacher(generatedUserId, name, email, schoolName, salary, status);
+                usersMap.put(generatedUserId, newTeacher);
+                System.out.println("Assigned User ID: " + generatedUserId);
+            } else {
+                System.out.println("Teacher was not saved — skipping in-memory record.");
+            }
         }
     }
 
@@ -59,11 +66,11 @@ public class TeacherManager {
                 Status           : %s
                 """,
                         t.getUserId(),
-                t.getUserName(),
-                t.getEmail(),
-                t.getSchoolName(),
-                t.getSalary(),
-                t.getStatus()
+                        t.getUserName(),
+                        t.getEmail(),
+                        t.getSchoolName(),
+                        t.getSalary(),
+                        t.getStatus()
                 );
             }
         }
@@ -72,26 +79,6 @@ public class TeacherManager {
     // =========================
     // VALIDATIONS
     // =========================
-    private int getValidUserId() {
-        while (true) {
-            System.out.print("User Id: ");
-            try {
-                int userId = sc.nextInt();
-                sc.nextLine();
-
-                boolean isDuplicate = usersMap.containsKey(userId);
-
-                if (userId > 0 && !isDuplicate) {
-                    return userId;
-                }
-                System.out.println("User Id must be positive and unique.");
-            } catch (InputMismatchException e) {
-                System.out.println("Numbers only.");
-                sc.nextLine();
-            }
-        }
-    }
-
     private int getValidTeacherCount() {
         int count;
         while (true) {
@@ -102,7 +89,7 @@ public class TeacherManager {
                 if (count > 0) {
                     return count;
                 }
-                System.out.println("Invalid! Teacher count must be greater than 0.");
+                System.out.println("Invalid! src.main.java.Teacher count must be greater than 0.");
             } catch (InputMismatchException e) {
                 System.out.println("Numbers only.");
                 sc.nextLine();
@@ -130,7 +117,7 @@ public class TeacherManager {
             if (email.matches(emailRegex)) {
                 return email.toLowerCase();
             }
-            System.out.println("Invalid email format! Example: student@domain.com");
+            System.out.println("Invalid email format! Example: teachername@domain.com");
         }
     }
 
@@ -181,7 +168,7 @@ public class TeacherManager {
                 
                 **SEARCH FOUND**
                 
-                User Id      : %d
+                src.main.java.User Id      : %d
                 Name         : %s
                 Email        : %s
                 School Name  : %s
@@ -189,11 +176,11 @@ public class TeacherManager {
                 Status       : %s
                 """,
                     t.getUserId(),
-            t.getUserName(),
-            t.getEmail(),
-            t.getSchoolName(),
-            t.getSalary(),
-            t.getStatus()
+                    t.getUserName(),
+                    t.getEmail(),
+                    t.getSchoolName(),
+                    t.getSalary(),
+                    t.getStatus()
             );
             return;
         }
@@ -202,26 +189,31 @@ public class TeacherManager {
 
     // =========================
     //   SAVE DATA IN DATABASE
+    //   Returns the DB-generated user_id, or -1 on failure.
     // ==========================
-    public void saveTeacherToDatabase(int userId, String name, String email, String schoolName, double salary, String status) {
-        String sql = "INSERT INTO teachers (user_id, name, email, school_name, salary, status) VALUES (?, ?, ?, ?, ?, ?)";
+    public int saveTeacherToDatabase(String name, String email, String schoolName, double salary, String status) {
+        String sql = "INSERT INTO teachers (name, email, school_name, salary, status) VALUES (?, ?, ?, ?, ?) RETURNING user_id";
 
         try (Connection conn = DBUtil.getConnection();
-                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-            pstmt.setInt(1, userId);
-            pstmt.setString(2, name);
-            pstmt.setString(3, email);
-            pstmt.setString(4, schoolName);
-            pstmt.setDouble(5, salary);
-            pstmt.setString(6, status);
+            pstmt.setString(1, name);
+            pstmt.setString(2, email);
+            pstmt.setString(3, schoolName);
+            pstmt.setDouble(4, salary);
+            pstmt.setString(5, status);
 
-            pstmt.executeUpdate();
-            System.out.println("Teacher records synced to PostgreSQL database successfully.");
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                int generatedId = rs.getInt("user_id");
+                System.out.println("Teacher records synced to PostgreSQL database successfully.");
+                return generatedId;
+            }
 
         } catch (SQLException e) {
             System.err.println("Database sync error: " + e.getMessage());
         }
+        return -1;
     }
 
     // ==============================
@@ -231,8 +223,8 @@ public class TeacherManager {
         String sql = "SELECT user_id, name, email, school_name, salary, status FROM teachers";
 
         try (Connection conn = DBUtil.getConnection();
-                PreparedStatement pstmt = conn.prepareStatement(sql);
-        ResultSet rs = pstmt.executeQuery()) {
+             PreparedStatement pstmt = conn.prepareStatement(sql);
+             ResultSet rs = pstmt.executeQuery()) {
 
             while (rs.next()) {
                 int userId = rs.getInt("user_id");
@@ -297,7 +289,7 @@ public class TeacherManager {
         System.out.println("Teacher details updated successfully in memory!");
 
         try (Connection conn = DBUtil.getConnection();
-                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, newName);
             pstmt.setString(2, newEmail);
@@ -335,7 +327,7 @@ public class TeacherManager {
         System.out.println("Teacher " + targetTeacher.getUserName() + "'s details deleted successfully in memory!");
 
         try (Connection conn = DBUtil.getConnection();
-                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setInt(1, userId);
 

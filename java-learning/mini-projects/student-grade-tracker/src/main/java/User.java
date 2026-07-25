@@ -1,3 +1,5 @@
+
+
 public abstract class User implements Authenticatable {
 
     private int userId;
