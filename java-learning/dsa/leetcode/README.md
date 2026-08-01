@@ -28,6 +28,7 @@ Every solution includes a dedicated test suite (JUnit) and an architectural brea
 | 28 | [Find First Occurrence](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/) | 🟢 Easy | [`Solution.java`](./strings/find_first_occurrence_in_a_string/Solution.java) | Offset sliding window comparison | $O(N \cdot M)$ | $O(1)$ |
 | 125 | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | 🟢 Easy | [`Solution.java`](./two_pointers/valid_palindrome/Solution.java) | Converging two-pointer filtering non-alphanumeric | $O(N)$ | $O(1)$ |
 | 283 | [Move Zeroes](https://leetcode.com/problems/move-zeroes/) | 🟢 Easy | [`Solution.java`](./two_pointers/move_zeroes/Solution.java) | Write-pointer index shifting + trailing zero-fill | $O(N)$ | $O(1)$ |
+3. Longest Substring Without Repeating Characters
 
 ---
 
