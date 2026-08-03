@@ -1,2 +1,2 @@
 # Java Basics
-Java Basics All.
+Java Basics and Fundamental All.
