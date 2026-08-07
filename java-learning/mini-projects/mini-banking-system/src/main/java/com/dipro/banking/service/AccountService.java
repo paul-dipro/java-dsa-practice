@@ -44,6 +44,50 @@ public class AccountService{
         return accounts.remove(accountNumber) != null;
     }
 
+    public boolean deposit(long accountNumber, double amount) {
+
+        Account account = accounts.get(accountNumber);
+
+        if (account == null) {
+            return false;
+        }
+
+        if (accountNumber <= 0) {
+            return false;
+        }
+
+        if(amount > 0) {
+            double newBalance = account.getBalance();
+            newBalance += amount;
+            account.setBalance(newBalance);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean withdraw(long accountNumber,  double amount) {
+
+        Account account = accounts.get(accountNumber);
+
+        if (account == null) {
+            return false;
+        }
+
+        if (accountNumber <= 0) {
+            return false;
+        }
+
+        if(account.getBalance() >= amount && amount > 0) {
+            double newBalance = account.getBalance();
+            newBalance -= amount;
+            account.setBalance(newBalance);
+        } else {
+            return false;
+        }
+        return true;
+    }
+
     public Collection<Account> getAllAccounts() {
         return accounts.values();
     }
