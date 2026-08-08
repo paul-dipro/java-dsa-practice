@@ -7,8 +7,17 @@ public abstract class Account {
     private Customer owner;
     private AccountType accountType;
 
-    public Account(double balance) {
+    public Account(boolean active, double balance) {
+        this.active = active;
         this.balance = balance;
+    }
+
+    public boolean getActiveStatus() {
+        return active;
+    }
+
+    public void setActiveStatus(boolean active) {
+        this.active = active;
     }
 
     public double getBalance() {

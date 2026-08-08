@@ -41,10 +41,10 @@ public class AccountService{
     }
 
     public boolean closeAccount(long accountNumber) {
-        return accounts.remove(accountNumber) != null;
-    }
 
-    public boolean deposit(long accountNumber, double amount) {
+        if (accountNumber <= 0) {
+            return false;
+        }
 
         Account account = accounts.get(accountNumber);
 
@@ -52,7 +52,27 @@ public class AccountService{
             return false;
         }
 
+        if (!account.getActiveStatus()) {
+            return false;
+        }
+
+        account.setActiveStatus(false);
+        return true;
+    }
+
+    public boolean deposit(long accountNumber, double amount) {
+
         if (accountNumber <= 0) {
+            return false;
+        }
+
+        Account account = accounts.get(accountNumber);
+
+        if (account == null) {
+            return false;
+        }
+
+        if (!account.getActiveStatus()) {
             return false;
         }
 
@@ -68,13 +88,17 @@ public class AccountService{
 
     public boolean withdraw(long accountNumber,  double amount) {
 
+        if (accountNumber <= 0) {
+            return false;
+        }
+
         Account account = accounts.get(accountNumber);
 
         if (account == null) {
             return false;
         }
 
-        if (accountNumber <= 0) {
+        if (!account.getActiveStatus()) {
             return false;
         }
 
