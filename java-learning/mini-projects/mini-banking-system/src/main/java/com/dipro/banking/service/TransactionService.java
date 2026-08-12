@@ -15,6 +15,10 @@ public class TransactionService {
             return false;
         }
 
+        if (fromAccountNumber == toAccountNumber) {
+            return false;
+        }
+
         Account fromAccount = accountService.findAccount(fromAccountNumber);
         Account toAccount = accountService.findAccount(toAccountNumber);
 
