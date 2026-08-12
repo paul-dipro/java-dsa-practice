@@ -4,9 +4,18 @@ import java.util.List;
 public class Customer {
 
     private int customerId;
-    private Customer owner;
-    private String phoneNumber;
 
-    private List<Account> accounts = new ArrayList<>();
+    private final List<Account> accounts = new ArrayList<>();
 
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+    public List<Account> getAccounts() {
+        return accounts;
+    }
 }

@@ -7,8 +7,28 @@ public abstract class Account {
     private Customer owner;
     private AccountType accountType;
 
-    public Account(boolean active, double balance) {
+    public Account(long accountNumber,
+                   double balance,
+                   boolean active,
+                   Customer owner,
+                   AccountType accountType) {
+
+        this.accountNumber = accountNumber;
+        this.balance = balance;
         this.active = active;
+        this.owner = owner;
+        this.accountType = accountType;
+    }
+
+    public long getAccountNumber() {
+        return accountNumber;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
@@ -20,11 +40,11 @@ public abstract class Account {
         this.active = active;
     }
 
-    public double getBalance() {
-        return balance;
+    public Customer getOwner() {
+        return owner;
     }
 
-    public void setBalance(double balance) {
-        this.balance = balance;
+    public AccountType getAccountType() {
+        return accountType;
     }
 }
