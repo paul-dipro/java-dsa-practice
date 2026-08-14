@@ -36,25 +36,26 @@ public class Main {
                         + customerService.addCustomer(customer1)
         );
 
-
-        Account account1 = new Account(
+        SavingsAccount savings = new SavingsAccount(
                 100001L,
                 10000.0,
                 true,
                 customer1,
-                AccountType.SAVINGS
-        ) {
-        };
+                AccountType.SAVINGS,
+                5.0
+        );
 
-        Account account2 = new Account(
+        CurrentAccount current = new CurrentAccount(
                 100002L,
                 5000.0,
                 true,
                 customer2,
-                AccountType.SAVINGS
-        ) {
-        };
+                AccountType.CURRENT,
+                2000.0
+        );
 
+        Account account1 = savings;
+        Account account2 = current;
 
         System.out.println("\n--- Account Tests ---");
 
@@ -281,6 +282,16 @@ public class Main {
         System.out.println(
                 "Account 100002 Active: "
                         + account2.getActiveStatus()
+        );
+
+        System.out.println("\n--- Account Type Tests ---");
+
+        System.out.println(
+                "Savings Interest: ₹" + savings.calculateInterest()
+        );
+
+        System.out.println(
+                "Current Interest: ₹" + current.calculateInterest()
         );
 
         System.out.println("\n===== TEST COMPLETE =====");

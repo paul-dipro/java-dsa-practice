@@ -47,4 +47,6 @@ public abstract class Account {
     public AccountType getAccountType() {
         return accountType;
     }
+
+    public abstract double calculateInterest();
 }
