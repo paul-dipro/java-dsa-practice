@@ -15,7 +15,7 @@ A management tool for academic data entry and analysis.
 *   **Goal:** Provide a persistent-style interface for educators to track student performance.
 
 ## 2. Mini Banking System
-
+A banking system to transfer money securely.
 ---
 
 ## Technical Stack
