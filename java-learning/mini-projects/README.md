@@ -1,24 +1,71 @@
 # Java Mini CLI Projects
 
-A collection of foundational backend utilities designed to demonstrate core Java logic, object-oriented principles, and CLI-based user interaction.
+A collection of foundational Java CLI projects designed to strengthen **core programming logic, object-oriented programming, data structures, exception handling, and user interaction**.
+
+These projects serve as practical exercises for building a strong foundation for backend development with Java.
+
+## Projects
+
+### 1. Sink-a-Dot Game (v1 & v2)
+
+A terminal-based logic game inspired by the classic **Battleship** concept.
+
+**Core Concepts:**
+
+* Arrays and array manipulation
+* Random coordinate generation
+* Loops and conditional logic
+* Game-state management
+* User input handling
+
+**Goal:**
+Sink all hidden targets using the fewest possible moves.
 
 ---
 
-## 1. Sink-a-Dot Game(v1 & v2)
-A terminal-based logic game based on the "Battleship" concept.
-*   **Core Concepts:** Array manipulation, random coordinate generation, and game loop management.
-*   **Goal:** Sink all hidden targets in the fewest possible moves.
+### 2. Student Grade Tracker
 
-## 2. Student Grade Tracker
-A management tool for academic data entry and analysis.
-*   **Core Concepts:** ArrayLists, input validation, HashMap, Polymorphism and statistical calculations (average, highest/lowest scores) Exception Handling.
-*   **Goal:** Provide a persistent-style interface for educators to track student performance.
+A CLI-based academic management tool for entering, organizing, and analyzing student grades.
 
-## 2. Mini Banking System
-A banking system to transfer money securely.
+**Core Concepts:**
+
+* `ArrayList`
+* `HashMap`
+* Input validation
+* Exception handling
+* Polymorphism
+* Statistical calculations
+* Average, highest, and lowest scores
+
+**Goal:**
+Provide a structured interface for managing and analyzing student performance data.
+
+---
+
+### 3. Mini Banking System
+
+A CLI-based banking application designed to simulate basic banking operations and secure money transfers.
+
+**Core Concepts:**
+
+* Object-oriented programming
+* Classes and objects
+* Encapsulation
+* Enums
+* Service-layer design
+* Transaction handling
+* Input validation
+* Exception handling
+
+**Goal:**
+Implement core banking operations while maintaining clean object-oriented design and reliable transaction logic.
+
 ---
 
 ## Technical Stack
-*   **Language:** Java 17+
-*   **Architecture:** Command Line Interface (CLI)
-  
+
+* **Language:** Java 17+
+* **Architecture:** Command Line Interface (CLI)
+* **Concepts:** OOP, Collections, Exception Handling, Data Structures, Input Validation
+* **Development Focus:** Core Java and backend programming fundamentals
+
