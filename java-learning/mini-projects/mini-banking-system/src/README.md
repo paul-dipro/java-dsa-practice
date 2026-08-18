@@ -193,6 +193,4 @@ The goal of this project is not to build a real banking platform. It is to build
 * Database integration
 * Backend architecture
 
-## Status
-
 The project is actively being developed.
