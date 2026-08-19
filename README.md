@@ -7,7 +7,9 @@ This repository documents what I learn and build while developing my Java progra
 Contents
 
 - Java Practice — Core Java concepts, exercises, and programming problems
+
 - DSA — Data Structures & Algorithms problems and solutions
+
 - Mini Projects — Small Java projects built to apply concepts in practice
 
 
