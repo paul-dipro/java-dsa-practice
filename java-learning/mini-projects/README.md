@@ -57,9 +57,6 @@ A CLI-based banking application designed to simulate basic banking operations an
 * Input validation
 * Exception handling
 
-**Goal:**
-Implement core banking operations while maintaining clean object-oriented design and reliable transaction logic.
-
 ---
 
 ## Technical Stack
