@@ -166,7 +166,7 @@ Transaction History
     ↓
 PostgreSQL
     ↓
-JDBC
+   JDBC
     ↓
 Spring Boot
     ↓
@@ -194,7 +194,5 @@ The goal of this project is not to build a real banking platform. It is to build
 * Backend architecture
 
 ## Status
-
-**Current stage:** Core Java service layer + integration testing
 
 The project is actively being developed.
