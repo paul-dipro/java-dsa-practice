@@ -18,9 +18,6 @@ A terminal-based logic game inspired by the classic **Battleship** concept.
 * Game-state management
 * User input handling
 
-**Goal:**
-Sink all hidden targets using the fewest possible moves.
-
 ---
 
 ### 2. Student Grade Tracker
